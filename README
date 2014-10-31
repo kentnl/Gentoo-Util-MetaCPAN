@@ -1,0 +1,23 @@
+NAME
+    Gentoo::Util::MetaCPAN - Gentoo Specific MetaCPAN Utilities.
+
+VERSION
+    version 0.001000
+
+METHODS
+  find_files_providing
+  find_latest_files_providing
+  find_release
+  find_releases_providing
+FUNCTIONS
+  "mcpan"
+AUTHOR
+    Kent Fredric <kentnl@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2014 by Kent Fredric
+    <kentfredric@gmail.com>.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
