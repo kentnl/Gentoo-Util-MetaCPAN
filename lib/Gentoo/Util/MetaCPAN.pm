@@ -72,13 +72,13 @@ lsub 'mechua' => sub {
       'request_send' => sub {
         *STDERR->printf( "%s\n", $_[0]->as_string );
         return;
-      }
+      },
     );
     $mech->add_handler(
       'response_done' => sub {
         *STDERR->printf( "%s\n", $_[0]->content );
         return;
-      }
+      },
     );
   }
   elsif ( $self->debug ) {
@@ -86,13 +86,13 @@ lsub 'mechua' => sub {
       'request_send' => sub {
         *STDERR->printf( "%s\n", $_[0]->dump );
         return;
-      }
+      },
     );
     $mech->add_handler(
       'response_done' => sub {
         *STDERR->printf( "%s\n", $_[0]->dump );
         return;
-      }
+      },
     );
   }
   return $mech;
@@ -117,6 +117,7 @@ sub _cache_object {
 }
 {
 ## HACK: This exists because its not supported natively yet.
+  ## no critic (TestingAndDebugging::ProhibitNoWarnings,Subroutines::ProhibitQualifiedSubDeclarations)
   no warnings 'redefine';
 
   use MetaCPAN::Client::ResultSet;
@@ -158,7 +159,7 @@ sub _raw_scroll_query {
 }
 
 sub _scroll_to_list {
-  my ( $self, $scroll ) = @_;
+  my ( undef, $scroll ) = @_;
   my @out;
   while ( my $item = $scroll->next ) {
     push @out, $item;
@@ -186,7 +187,7 @@ sub find_release {
   my $result = $self->_cache_object(
     [ 'find_release', $author, $dist ] => undef,
     => sub {
-      return [ $self->_scroll_to_list( $self->_raw_scroll_query($query) ) ];
+      return [ $self->_scroll_to_list( $self->_raw_scroll_query($query) ), ];
     }
   );
   return @{$result};
@@ -205,8 +206,8 @@ sub find_files_providing {
     constant_score => {
       filter => {
         and => \@terms,
-      }
-    }
+      },
+    },
   };
   my $query = {
     filtered => {
@@ -229,7 +230,7 @@ sub find_files_providing {
     [ 'find_files_providing', $module_name ] => undef,
     => sub {
       return [ $self->_scroll_to_list( $self->_raw_scroll_query($config) ) ];
-    }
+    },
   );
   return @{$result};
 }
