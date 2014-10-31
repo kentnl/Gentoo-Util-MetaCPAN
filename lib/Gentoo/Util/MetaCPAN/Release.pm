@@ -4,7 +4,7 @@ use warnings;
 
 package Gentoo::Util::MetaCPAN::Release;
 
-our $VERSION = '0.001000'; # TRIAL
+our $VERSION = '0.001001'; # TRIAL
 
 # ABSTRACT: Subclass of MetaCPAN::Client::Release with some utility functions
 
@@ -71,7 +71,7 @@ Gentoo::Util::MetaCPAN::Release - Subclass of MetaCPAN::Client::Release with som
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 

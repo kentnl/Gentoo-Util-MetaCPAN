@@ -4,7 +4,7 @@ use warnings;
 
 package Gentoo::Util::MetaCPAN::File;
 
-our $VERSION = '0.001000'; # TRIAL
+our $VERSION = '0.001001'; # TRIAL
 
 # ABSTRACT: Enhancements to MetaCPAN::File
 
@@ -37,7 +37,7 @@ Gentoo::Util::MetaCPAN::File - Enhancements to MetaCPAN::File
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 AUTHOR
 

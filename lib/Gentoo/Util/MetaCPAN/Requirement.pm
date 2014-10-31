@@ -4,7 +4,7 @@ use warnings;
 
 package Gentoo::Util::MetaCPAN::Requirement;
 
-our $VERSION = '0.001000'; # TRIAL
+our $VERSION = '0.001001'; # TRIAL
 
 # ABSTRACT: A Single dependency requirement specialized for Gentoo
 
@@ -91,7 +91,7 @@ Gentoo::Util::MetaCPAN::Requirement - A Single dependency requirement specialize
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 

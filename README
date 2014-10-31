@@ -2,7 +2,7 @@ NAME
     Gentoo::Util::MetaCPAN - Gentoo Specific MetaCPAN Utilities.
 
 VERSION
-    version 0.001000
+    version 0.001001
 
 METHODS
   find_files_providing
