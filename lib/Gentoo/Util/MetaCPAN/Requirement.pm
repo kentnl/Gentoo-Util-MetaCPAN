@@ -21,6 +21,7 @@ has 'gentoo_version' => ( is => ro =>, lazy     => 1, builder => '_build_gentoo_
 sub BUILD {
   my ($self) = @_;
   $self->gentoo_version;
+  return;
 }
 
 sub _has_min_version {
