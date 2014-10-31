@@ -6,7 +6,7 @@ package Gentoo::Util::MetaCPAN::Requirement;
 
 our $VERSION = '0.001000';
 
-# ABSTRACT: A Single dependency requirement specialised for Gentoo
+# ABSTRACT: A Single dependency requirement specialized for Gentoo
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -87,7 +87,7 @@ __END__
 
 =head1 NAME
 
-Gentoo::Util::MetaCPAN::Requirement - A Single dependency requirement specialised for Gentoo
+Gentoo::Util::MetaCPAN::Requirement - A Single dependency requirement specialized for Gentoo
 
 =head1 VERSION
 
