@@ -1,7 +1,6 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Gentoo::Util::MetaCPAN;
 
@@ -12,7 +11,7 @@ our $VERSION = '0.001000';
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moo;
-use MooX::Lsub;
+use MooX::Lsub qw( lsub );
 use File::Spec;
 use Sub::Exporter::Progressive -setup => { exports => ['mcpan'] };
 use Path::Tiny qw( path );
