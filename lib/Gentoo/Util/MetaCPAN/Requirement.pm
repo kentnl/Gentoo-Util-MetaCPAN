@@ -1,9 +1,10 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Gentoo::Util::MetaCPAN::Requirement;
+
+our $VERSION = '0.001000';
 
 # ABSTRACT: A Single dependency requirement speciailised for Gentoo
 
@@ -17,12 +18,20 @@ has 'range'          => ( is => ro =>, required => 1, );
 has 'version'        => ( is => ro =>, lazy     => 1, builder => '_build_version' );
 has 'gentoo_version' => ( is => ro =>, lazy     => 1, builder => '_build_gentoo_version' );
 
-sub BUILD { $_[0]->gentoo_version }
+sub BUILD {
+  my ($self) = @_;
+  $self->gentoo_version;
+}
 
 sub _has_min_version {
-  return !( $_[0]->range->_accepts(0) );
+  my ($self) = @_;
+  return !( $self->range->_accepts(0) );
 }
-sub _build_version { return $_[0]->range->as_string }
+
+sub _build_version {
+  my ($self) = @_;
+  return $self->range->as_string;
+}
 
 sub _build_gentoo_version {
   my ($self) = @_;
@@ -31,25 +40,33 @@ sub _build_gentoo_version {
   return $ver;
 }
 
+sub _pretty_version {
+  my ($version) = @_;
+  return eval { gentooize_version( $version, { lax => 1 } ) } || '?';
+}
+
 sub _pretty {
-  if ( $_[0]->range->isa('CPAN::Meta::Requirements::_Range::Exact') ) {
-    return sprintf '= %s @ %s', $_[0]->module, eval { gentooize_version( $_[0]->range->{version}, { lax => 1 } ) } || '?';
+  my ($self) = @_;
+  my $module = $self->module;
+  my $range  = $self->range;
+  if ( $range->isa('CPAN::Meta::Requirements::_Range::Exact') ) {
+    return sprintf '= %s @ %s', $module, _pretty_version( $range->{version} );
   }
   my @out;
-  if ( exists $_[0]->range->{minimum} ) {
-    if ( $_[0]->range->{minimum} != 0 ) {
-      push @out, sprintf '>= %s @ %s', $_[0]->module, eval { gentooize_version( $_[0]->range->{minimum}, { lax => 1 } ) } || '?';
+  if ( exists $range->{minimum} ) {
+    if ( $range->{minimum} != 0 ) {
+      push @out, sprintf '>= %s @ %s', $module, _pretty_version( $range->{minimum} );
     }
     else {
-      push @out, sprintf '%s', $_[0]->module;
+      push @out, sprintf '%s', $module;
     }
   }
-  if ( exists $_[0]->range->{maximum} ) {
-    push @out, sprintf '<= %s @ %s', $_[0]->module, eval { gentooize_version( $_[0]->range->{maximum}, { lax => 1 } ) } || '?';
+  if ( exists $range->{maximum} ) {
+    push @out, sprintf '<= %s @ %s', $module, _pretty_version( $range->{maximum} );
   }
-  if ( exists $_[0]->range->{exclusions} ) {
-    for my $exclusion ( @{ $_[0]->range->{exclusions} } ) {
-      push @out, sprintf '! %s @ %s', $_[0]->module, eval { gentooize_version( $exclusion, { lax => 1 } ) } || '?';
+  if ( exists $range->{exclusions} ) {
+    for my $exclusion ( @{ $range->{exclusions} } ) {
+      push @out, sprintf '! %s @ %s', $module, _pretty_version( $exclusion, { lax => 1 } );
     }
   }
   return join q[ ], @out;

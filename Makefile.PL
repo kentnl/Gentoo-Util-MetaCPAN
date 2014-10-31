@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use 5.008;
+use 5.006;
 
 use ExtUtils::MakeMaker;
 
@@ -18,7 +18,7 @@ my %WriteMakefileArgs = (
   "DISTNAME" => "Gentoo-Util-MetaCPAN",
   "EXE_FILES" => [],
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.008",
+  "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Gentoo::Util::MetaCPAN",
   "PREREQ_PM" => {
     "CHI" => 0,
@@ -41,7 +41,6 @@ my %WriteMakefileArgs = (
     "Sub::Exporter::Progressive" => 0,
     "WWW::Mechanize::Cached" => 0,
     "strict" => 0,
-    "utf8" => 0,
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
@@ -79,7 +78,6 @@ my %FallbackPrereqs = (
   "Test::More" => "0.89",
   "WWW::Mechanize::Cached" => 0,
   "strict" => 0,
-  "utf8" => 0,
   "warnings" => 0
 );
 
