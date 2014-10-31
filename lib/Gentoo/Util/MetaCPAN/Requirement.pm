@@ -45,7 +45,7 @@ sub _build_gentoo_version {
 
 sub _pretty_version {
   my ($version) = @_;
-  return eval { gentooize_version( $version, { lax => 1 } ) } || '?';
+  return eval { gentooize_version( $version, { lax => 1 } ) } || q<?>;
 }
 
 sub _pretty {
