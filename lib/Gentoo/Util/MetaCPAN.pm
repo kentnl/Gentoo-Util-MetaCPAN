@@ -4,7 +4,7 @@ use warnings;
 
 package Gentoo::Util::MetaCPAN;
 
-our $VERSION = '0.001000';
+our $VERSION = '0.001001'; # TRIAL
 
 # ABSTRACT: Gentoo Specific MetaCPAN Utilities.
 
