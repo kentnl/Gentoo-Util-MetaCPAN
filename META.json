@@ -534,6 +534,11 @@
                      },
                      {
                         "class" : "Pod::Weaver::Section::Collect",
+                        "name" : "FUNCTIONS",
+                        "version" : "4.007"
+                     },
+                     {
+                        "class" : "Pod::Weaver::Section::Collect",
                         "name" : "PRIVATE_ATTRIBUTES",
                         "version" : "4.007"
                      },

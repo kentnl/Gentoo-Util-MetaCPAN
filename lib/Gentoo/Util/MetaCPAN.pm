@@ -350,7 +350,9 @@ version 0.001000
 
 =head2 find_releases_providing
 
-=func mcpan
+=head1 FUNCTIONS
+
+=head2 mcpan
 
 =head1 AUTHOR
 
