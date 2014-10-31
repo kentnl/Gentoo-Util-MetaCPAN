@@ -50,7 +50,7 @@ sub get_dependencies {
 }
 
 sub gentoo_version {
-  my ( $self ) = @_;
+  my ($self) = @_;
   ## no critic (ErrorHandling::RequireCheckingReturnValueOfEval)
   return eval { gentooize_version( $self->version, { lax => 1 } ) };
 }
