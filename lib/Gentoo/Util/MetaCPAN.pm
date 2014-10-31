@@ -188,7 +188,7 @@ sub find_release {
     [ 'find_release', $author, $dist ] => undef,
     => sub {
       return [ $self->_scroll_to_list( $self->_raw_scroll_query($query) ), ];
-    }
+    },
   );
   return @{$result};
 }
@@ -248,8 +248,8 @@ sub find_latest_files_providing {
     constant_score => {
       filter => {
         and => \@terms,
-      }
-    }
+      },
+    },
   };
   my $query = {
     filtered => {
@@ -266,7 +266,7 @@ sub find_latest_files_providing {
     class => 'Gentoo::Util::MetaCPAN::File',
 
     body => {
-      fields        => '*',
+      fields        => q[*],
       script_fields => { latest => { 'metacpan_script' => 'status_is_latest' } },
       query         => $query,
     },
@@ -275,7 +275,7 @@ sub find_latest_files_providing {
     [ 'find_latest_files_providing', $module_name ] => undef,
     => sub {
       return [ grep { $_->latest } $self->_scroll_to_list( $self->_raw_scroll_query($config) ) ];
-    }
+    },
   );
   return @{$result};
 
@@ -292,7 +292,7 @@ sub find_releases_providing {
         { term => { 'indexed'    => 1 } },               #
         { term => { 'name'       => $module_name } },    #
       ],
-    }
+    },
   };
 
   my $query = {
@@ -309,13 +309,13 @@ sub find_releases_providing {
       query => {    #     %{$query},
         constant_score => { query => $query },
       },
-    }
+    },
   };
   my $result = $self->_cache_object(
     [ 'find_releases_providing', $module_name ] => undef,
     => sub {
       return [ $self->_scroll_to_list( $self->_raw_scroll_query($config) ) ];
-    }
+    },
   );
   return @{$result};
 }
