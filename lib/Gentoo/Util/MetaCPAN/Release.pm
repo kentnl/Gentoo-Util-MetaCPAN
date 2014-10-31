@@ -1,9 +1,10 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Gentoo::Util::MetaCPAN::Release;
+
+our $VERSION = '0.001000';
 
 # ABSTRACT: Subclass of MetaCPAN::Client::Release with some utility functions
 
@@ -49,7 +50,9 @@ sub get_dependencies {
 }
 
 sub gentoo_version {
-  return eval { gentooize_version( $_[0]->version, { lax => 1 } ) };
+  my ( $self ) = @_;
+  ## no critic (ErrorHandling::RequireCheckingReturnValueOfEval)
+  return eval { gentooize_version( $self->version, { lax => 1 } ) };
 }
 
 no Moo;

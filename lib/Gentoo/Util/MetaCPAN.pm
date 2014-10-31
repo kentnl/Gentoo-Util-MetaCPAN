@@ -298,7 +298,7 @@ sub find_releases_providing {
   my $query = {
     nested => {
       path  => 'module',
-      query => $nested_query
+      query => $nested_query,
     },
   };
 

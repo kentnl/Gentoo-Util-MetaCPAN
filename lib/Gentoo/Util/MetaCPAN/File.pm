@@ -1,9 +1,10 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Gentoo::Util::MetaCPAN::File;
+
+our $VERSION = '0.001000';
 
 # ABSTRACT: Enhancements to MetaCPAN::File
 
