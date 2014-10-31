@@ -10,7 +10,7 @@ METHODS
   find_release
   find_releases_providing
 FUNCTIONS
-  mcpan
+  "mcpan"
 AUTHOR
     Kent Fredric <kentnl@cpan.org>
 

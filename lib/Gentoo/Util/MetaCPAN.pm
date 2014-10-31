@@ -352,7 +352,7 @@ version 0.001000
 
 =head1 FUNCTIONS
 
-=head2 mcpan
+=head2 C<mcpan>
 
 =head1 AUTHOR
 
