@@ -149,6 +149,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kentnl/Gentoo-Util-MetaCPAN/issues"
+      },
+      "homepage" : "https://github.com/kentnl/Gentoo-Util-MetaCPAN",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/kentnl/Gentoo-Util-MetaCPAN.git",
+         "web" : "https://github.com/kentnl/Gentoo-Util-MetaCPAN"
+      }
+   },
    "version" : "0.001000",
    "x_BuiltWith" : {
       "modules" : {

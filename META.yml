@@ -55,6 +55,10 @@ requires:
   perl: '5.013002'
   strict: '0'
   warnings: '0'
+resources:
+  bugtracker: https://github.com/kentnl/Gentoo-Util-MetaCPAN/issues
+  homepage: https://github.com/kentnl/Gentoo-Util-MetaCPAN
+  repository: https://github.com/kentnl/Gentoo-Util-MetaCPAN.git
 version: '0.001000'
 x_BuiltWith:
   modules:
