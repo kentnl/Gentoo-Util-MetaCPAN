@@ -26,6 +26,7 @@ sub BUILD {
 
 sub _has_min_version {
   my ($self) = @_;
+  ## no critic (Subroutines::ProtectPrivateSubs)
   return !( $self->range->_accepts(0) );
 }
 
@@ -37,6 +38,7 @@ sub _build_version {
 sub _build_gentoo_version {
   my ($self) = @_;
   my $ver;
+  ## no critic (ErrorHandling::RequireCheckingReturnValueOfEval)
   eval { $ver = gentooize_version( $self->version, { lax => 1 } ); };
   return $ver;
 }
