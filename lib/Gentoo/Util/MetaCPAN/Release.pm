@@ -73,6 +73,12 @@ Gentoo::Util::MetaCPAN::Release - Subclass of MetaCPAN::Client::Release with som
 
 version 0.001000
 
+=head1 METHODS
+
+=head2 gentoo_version
+
+=head2 get_dependencies
+
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>

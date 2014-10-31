@@ -4,6 +4,11 @@ NAME
 VERSION
     version 0.001000
 
+METHODS
+  find_files_providing
+  find_latest_files_providing
+  find_release
+  find_releases_providing
 AUTHOR
     Kent Fredric <kentnl@cpan.org>
 
@@ -13,4 +18,11 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
+
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 353:
+        Unknown directive: =func
 

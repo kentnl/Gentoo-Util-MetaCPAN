@@ -340,6 +340,18 @@ Gentoo::Util::MetaCPAN - Gentoo Specific MetaCPAN Utilities.
 
 version 0.001000
 
+=head1 METHODS
+
+=head2 find_files_providing
+
+=head2 find_latest_files_providing
+
+=head2 find_release
+
+=head2 find_releases_providing
+
+=func mcpan
+
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>

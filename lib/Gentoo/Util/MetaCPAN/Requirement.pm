@@ -93,6 +93,14 @@ Gentoo::Util::MetaCPAN::Requirement - A Single dependency requirement specialize
 
 version 0.001000
 
+=head1 METHODS
+
+=head2 BUILD
+
+=head2 module
+
+=head2 range
+
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
