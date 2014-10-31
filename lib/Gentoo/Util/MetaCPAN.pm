@@ -37,7 +37,7 @@ sub _mk_cache {
     cache_size       => '30m',
     key_serializer   => $serial,
     serializer       => $serial,
-    %opts
+    %opts,
   );
 }
 
@@ -69,13 +69,13 @@ lsub 'mechua' => sub {
   }
   if ( ( $self->debug || 0 ) > 1 ) {
     $mech->add_handler(
-      "request_send" => sub {
+      'request_send' => sub {
         *STDERR->printf( "%s\n", $_[0]->as_string );
         return;
       }
     );
     $mech->add_handler(
-      "response_done" => sub {
+      'response_done' => sub {
         *STDERR->printf( "%s\n", $_[0]->content );
         return;
       }
@@ -83,13 +83,13 @@ lsub 'mechua' => sub {
   }
   elsif ( $self->debug ) {
     $mech->add_handler(
-      "request_send" => sub {
+      'request_send' => sub {
         *STDERR->printf( "%s\n", $_[0]->dump );
         return;
       }
     );
     $mech->add_handler(
-      "response_done" => sub {
+      'response_done' => sub {
         *STDERR->printf( "%s\n", $_[0]->dump );
         return;
       }
