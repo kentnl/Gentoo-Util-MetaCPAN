@@ -10,7 +10,7 @@ do { my $x = {
                       },
        'develop' => {
                       'recommends' => {
-                                        'Test::More' => '1.001008'
+                                        'Test::More' => '1.001009'
                                       },
                       'requires' => {
                                       'Dist::Zilla' => '5',
@@ -75,10 +75,8 @@ do { my $x = {
                     },
        'runtime' => {
                       'requires' => {
-                                      'CHI' => '0',
-                                      'CHI::Driver::LMDB' => '0',
+                                      'CHI::Config' => '0',
                                       'CPAN::Meta::Prereqs' => '0',
-                                      'Data::Serializer::Sereal' => '0',
                                       'File::Spec' => '0',
                                       'Gentoo::PerlMod::Version' => '0',
                                       'HTTP::Tiny::Mech' => '0',
@@ -91,7 +89,6 @@ do { my $x = {
                                       'MooX::Lsub' => '0',
                                       'Path::Tiny' => '0',
                                       'Scalar::Util' => '0',
-                                      'Sereal' => '0',
                                       'Sub::Exporter::Progressive' => '0',
                                       'WWW::Mechanize::Cached' => '0',
                                       'perl' => '5.013002',
@@ -103,7 +100,7 @@ do { my $x = {
                    'recommends' => {
                                      'CPAN::Meta' => '2.120900',
                                      'ExtUtils::MakeMaker' => '7.00',
-                                     'Test::More' => '1.001008'
+                                     'Test::More' => '1.001009'
                                    },
                    'requires' => {
                                    'ExtUtils::MakeMaker' => '0',

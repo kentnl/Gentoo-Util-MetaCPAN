@@ -15,34 +15,33 @@ use MooX::Lsub qw( lsub );
 use File::Spec;
 use Sub::Exporter::Progressive -setup => { exports => ['mcpan'] };
 use Path::Tiny qw( path );
+use CHI::Config;
 
-sub _mk_cache {
-  my ( $name, %opts ) = @_;
-  my $root  = path( File::Spec->tmpdir );
-  my $child = $root->child('gentoo-metacpan-cache');
-  $child->mkpath;
-  my $db = $child->child($name);
-  require Data::Serializer::Sereal;
-  require Sereal;
-  my $serial = Data::Serializer::Sereal->new( encoder => Sereal::Encoder->new( { compress => 1, canonincal => 1 } ) );
-  $db->mkpath;
-  require CHI;
-  require CHI::Driver::LMDB;
-  return CHI->new(
-    driver           => 'LMDB',
-    root_dir         => "$db",
-    expires_in       => '6 hour',
-    expires_variance => '0.2',
-    namespace        => $name,
-    cache_size       => '30m',
-    key_serializer   => $serial,
-    serializer       => $serial,
-    %opts,
+lsub '_caches' => sub {
+  return CHI::Config->new(
+    defaults => [
+      {
+        type   => "driver",
+        name   => "gentoo-util-metacpan.web",
+        config => {
+          driver    => "Memory",
+          datastore => {},
+        },
+      },
+      {
+        type   => "driver",
+        name   => "gentoo-util-metacpan.objects",
+        config => {
+          driver    => "Memory",
+          datastore => {},
+        },
+      },
+    ]
   );
-}
+};
 
-lsub 'www_cache'    => sub { _mk_cache('web') };
-lsub 'object_cache' => sub { _mk_cache('objects') };
+lsub 'www_cache'    => sub { $_[0]->_caches->get_cache('gentoo-util-metacpan.web') };
+lsub 'object_cache' => sub { $_[0]->_caches->get_cache('gentoo-util-metacpan.objects') };
 
 lsub 'debug' => sub {
   return unless defined $ENV{WWW_MECH_DEBUG};
